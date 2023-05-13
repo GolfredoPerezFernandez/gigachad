@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useRef,useEffect,useState} from "react";
 import SalesTabButton from "./SalesTabButton";
 import SalesTabContent from "./SalesTabContent";
+
+import RINGS from 'vanta/dist/vanta.rings.min'
 
 const Sales = () => {
   const chart_info_list = [
@@ -12,9 +14,29 @@ const Sales = () => {
     "Marketing: 3%",
     "Dev Team: 2%",
   ];
-
+  const [vantaEffect, setVantaEffect] = useState(null)
+	const myRef = useRef(null)
+	useEffect(() => {
+	  if (!vantaEffect) {
+		setVantaEffect(RINGS({
+		  el: myRef.current,
+      mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor: 0x0,
+  color: 0x888
+		}))
+	  }
+	  return () => {
+		if (vantaEffect) vantaEffect.destroy()
+	  }
+	}, [vantaEffect])
   return (
-    <section id="sales" className="chart-area chart-bg ">
+    <section ref={myRef} id="sales" className="chart-area chart-bg ">
       <div className="container">
         <div className="chart-inner">
           <div className="row align-items-center justify-content-center">

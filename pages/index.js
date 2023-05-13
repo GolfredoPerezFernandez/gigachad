@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>GiGaChad</title>
+        <title>GigaChad Token</title>
         <meta name="description" content="" />
       </Head>
 
@@ -23,13 +23,15 @@ export default function Home() {
           <Banner />
           <WhoWeAre />
 
-          <TopPartners />
           <WhyChooseUs />
           <Sales />
 
+          <div height={20}></div>
+          <TopPartners />
+          
           <div className="area-bg">
+            
             <Roadmap />
-            <WhitePaper />
           </div>
 
         </main>

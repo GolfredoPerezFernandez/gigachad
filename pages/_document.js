@@ -11,6 +11,7 @@ export default function Document() {
         <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
         <link rel="apple-touch-icon" href="/img/favicon.png" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="vanta.waves.min.js"></script>
 
       </Head>
 

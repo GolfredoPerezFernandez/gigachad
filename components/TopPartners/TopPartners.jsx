@@ -15,7 +15,7 @@ const TopPartners = () => {
   ];
 
   return (
-    <div className="partner-area pb-130">
+    <div className="partner-area pt-130 pb-130">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">

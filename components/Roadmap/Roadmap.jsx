@@ -1,6 +1,7 @@
 import { useHorizontalScroll } from "@/lib/hooks/useHorizontalScroll";
-import React from "react";
+import React,{useRef,useEffect,useState} from "react";
 import RoadmapItem from "./RoadmapItem";
+import RINGS from 'vanta/dist/vanta.net.min'
 
 const Roadmap = () => {
   const roadmap_items = [
@@ -50,9 +51,29 @@ const Roadmap = () => {
     },  ];
 
   const scrollRef = useHorizontalScroll();
-
+  const [vantaEffect, setVantaEffect] = useState(null)
+	const myRef = useRef(null)
+	useEffect(() => {
+	  if (!vantaEffect) {
+		setVantaEffect(RINGS({
+		  el: myRef.current,
+      mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x74dc,
+  backgroundColor: 0x0
+		}))
+	  }
+	  return () => {
+		if (vantaEffect) vantaEffect.destroy()
+	  }
+	}, [vantaEffect])
   return (
-    <section id="roadmap" className="roadmap-area pt-130 pb-130">
+    <section ref={myRef} id="roadmap" className="roadmap-area pt-130 pb-130">
       <div className="container custom-container-two">
         <div className="row justify-content-center">
           <div className="col-xl-5 col-lg-8">
