@@ -24,12 +24,13 @@ export default function Home() {
           <WhoWeAre />
 
           <WhyChooseUs />
-          <Sales />
-
+          
           <div className="area-bg">
             
             <Roadmap />
           </div>
+          <Sales />
+
 
           <div height={20}></div>
           <TopPartners />
