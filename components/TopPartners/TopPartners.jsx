@@ -20,7 +20,7 @@ const TopPartners = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="section-title text-center mb-10">
-              <span className="sub-title">Our top partner</span>
+              <span className="sub-title">Our Tecnologies Involved</span>
             </div>
           </div>
         </div>

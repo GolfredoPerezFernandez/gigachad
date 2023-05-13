@@ -37,9 +37,8 @@ const Roadmap = () => {
       roadmapTitle: "Q1 2024",
       title: "GigaChad Utility and Ecosystem Development.",
       info: [
-        "GigaChad Wallet.",
-        "GigaChad Swap.",
-        "GigaChad DeFi Ecosystem.",
+        "GigaChad App Wallet & Swap.",
+        "GigaChad PlayToEarn Minigames.",
       ],
     },
     {
