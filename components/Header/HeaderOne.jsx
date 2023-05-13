@@ -125,15 +125,7 @@ const HeaderOne = () => {
                           About us
                         </Link>
                       </li>
-                      <li className={isActiveLink("#sales")}>
-                        <Link
-                          href="#sales"
-                          className={"section-link"}
-                          onClick={() => handleClickScroll("sales")}
-                        >
-                          Sales
-                        </Link>
-                      </li>
+                      
                       <li className={isActiveLink("#roadmap")}>
                         <Link
                           href="#roadmap"
@@ -141,6 +133,15 @@ const HeaderOne = () => {
                           onClick={() => handleClickScroll("roadmap")}
                         >
                           Roadmap
+                        </Link>
+                      </li>
+                      <li className={isActiveLink("#sales")}>
+                        <Link
+                          href="#sales"
+                          className={"section-link"}
+                          onClick={() => handleClickScroll("sales")}
+                        >
+                          Sales
                         </Link>
                       </li>
                       
