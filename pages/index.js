@@ -26,14 +26,14 @@ export default function Home() {
           <WhyChooseUs />
           <Sales />
 
-          <div height={20}></div>
-          <TopPartners />
-          
           <div className="area-bg">
             
             <Roadmap />
           </div>
 
+          <div height={20}></div>
+          <TopPartners />
+          
         </main>
       </LayoutOne>
     </>

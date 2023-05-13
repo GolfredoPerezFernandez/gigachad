@@ -17,7 +17,7 @@ const Banner = () => {
       minWidth: 200.00,
       scale: 1.00,
       scaleMobile: 1.00,
-      color: 0x888
+      color: 0x0
 		}))
 	  }
 	  return () => {
