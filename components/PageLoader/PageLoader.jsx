@@ -13,13 +13,8 @@ const PageLoader = () => {
   if (loading) {
     return (
       <div className={cn(styles.preloader)}>
-        <div className={cn(styles.spinner)}>
-          <div className={cn(styles.rect1)}></div>
-          <div className={cn(styles.rect2)}></div>
-          <div className={cn(styles.rect3)}></div>
-          <div className={cn(styles.rect4)}></div>
-          <div className={cn(styles.rect5)}></div>
-        </div>
+       
+       <img height={100} src={"/img/logo/logo.png"} alt="" />
       </div>
     );
   } else {
