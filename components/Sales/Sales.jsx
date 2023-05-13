@@ -57,14 +57,7 @@ const Sales = () => {
                 data-wow-delay=".2s"
               >
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
-                  <SalesTabButton
-                    title="Funding Allocation"
-                    className="active"
-                    id="funding-tab"
-                    target="#funding"
-                    ariaControls="funding"
-                    ariaSelected={true}
-                  />
+                 
 
                   <SalesTabButton
                     title="Token Allocation"
@@ -81,10 +74,9 @@ const Sales = () => {
                     className={"show active"}
                     id="funding"
                     ariaLabel="funding-tab"
-                    title="1 CNL = 0.0863 BTC"
-                    description=" The World’s 1st ICO Platform That Offers Rewards and The
-                    platform helps investors to make easy to purchase and
-                    sell their tokens"
+                    title="1 CGHAD = The Future"
+                    description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside
+                  "
                     link="/"
                   />
 
