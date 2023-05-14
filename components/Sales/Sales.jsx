@@ -63,8 +63,7 @@ const Sales = () => {
                     id="funding"
                     ariaLabel="funding-tab"
                     title="1 GCHD = The Future"
-                    description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside
-                  "
+                    description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside"
                     link="/"
                   />
 
