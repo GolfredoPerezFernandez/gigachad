@@ -56,40 +56,19 @@ const Sales = () => {
                 className="chart-content wow fadeInLeft"
                 data-wow-delay=".2s"
               >
-                <ul className="nav nav-tabs" id="myTab" role="tablist">
-                 
-
-                  <SalesTabButton
-                    title="Token Allocation"
-                    className=""
-                    id="token-tab"
-                    target="#token"
-                    ariaControls="token"
-                    ariaSelected={false}
-                  />
-                </ul>
 
                 <div className="tab-content" id="myTabContent">
                   <SalesTabContent
                     className={"show active"}
                     id="funding"
                     ariaLabel="funding-tab"
-                    title="1 CGHAD = The Future"
+                    title="1 GCHD = The Future"
                     description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside
                   "
                     link="/"
                   />
 
-                  <SalesTabContent
-                    className={""}
-                    id="token"
-                    ariaLabel="token-tab"
-                    title="2 CNL = 0.0967 BTC"
-                    description=" The World’s 1st ICO Platform That Offers Rewards and The
-                    platform helps investors to make easy to purchase and
-                    sell their tokens"
-                    link="/"
-                  />
+                 
                 </div>
               </div>
             </div>

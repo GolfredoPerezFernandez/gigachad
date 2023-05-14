@@ -289,7 +289,7 @@ label {
   background: #00c4f4;
 }
 .breadcrumb > .active {
-  color: #888;
+  color: #ffffff;
 }
 
 /* scrollUp */
@@ -1682,7 +1682,7 @@ label {
   line-height: 1.2;
 }
 .chart-content-inner p {
-  color: #a4b4c3;
+  color: #ffffff;
   margin-bottom: 45px;
 }
 .chart-content-inner .btn {

@@ -12,7 +12,7 @@ const SalesTabContent = (props) => {
     >
       <div className="chart-content-inner">
         <h2 className="title">{props.title}</h2>
-        <p>{props.description}</p>
+        <p color="white">{props.description}</p>
         <Link href={props.link} className="btn">
           Buy Now
         </Link>
