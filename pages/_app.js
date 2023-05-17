@@ -12,7 +12,19 @@ const bootstrapJs = dynamic(import("bootstrap/dist/js/bootstrap.bundle.min"), {
   ssr: false,
   loading: () => 0,
 });
-
+import { configureChains,createConfig,WagmiConfig, mainnet } from 'wagmi'
+import { publicProvider } from 'wagmi/providers/public'
+ 
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [mainnet],
+  [publicProvider()],
+)
+ 
+const config = createConfig({
+  autoConnect: true,
+  publicClient,
+  webSocketPublicClient,
+})
 const isServer = typeof window === "undefined";
 const WOW = !isServer ? require("wow.js") : null;
 
@@ -29,5 +41,8 @@ export default function App({ Component, pageProps }) {
     wow.init();
   }, []);
 
-  return <Component {...pageProps} />;
+  return  <WagmiConfig config={config}>
+  <Component {...pageProps} />  
+    </WagmiConfig>
+;
 }

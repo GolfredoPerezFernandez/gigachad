@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from "react";
 import CountDownOne from "../CountDown/CountDownOne";
 import WAVES from 'vanta/dist/vanta.waves.min'
 
+import Link from "next/link";
 
 const Banner = () => {
   const [vantaEffect, setVantaEffect] = useState(null)
@@ -38,6 +39,10 @@ const Banner = () => {
               <h2 className="title">
               Get ready to dominate the crypto world with   <span>GigaChad </span>(GCHD) 
                </h2>
+
+               <Link  style={{marginBottom:20}} href="https://etherscan.io/address/0x3beff2831393769448d41f5196d4b68b9bf1ad92#code"  className="btn">
+                          ERC20 ADDRESS
+                        </Link>
             </div>
             </div>
           {/*   <div className="banner-progress-wrap">
