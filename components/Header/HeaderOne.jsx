@@ -4,11 +4,11 @@ import $ from "jquery";
 import Link from "next/link";
 import { handleClickScroll } from "@/lib/helpers";
 import { useRouter } from "next/router";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 let flag = true;
-
 const HeaderOne = () => {
-  
+
   // sticky nav bar
   const [stickyClass, setStickyClass] = useState({
     fixed: "",
@@ -144,14 +144,13 @@ const HeaderOne = () => {
                           Sales
                         </Link>
                       </li>
-                      
                     </ul>
                   </div>
                   <div className={cn("header-action", "d-none d-md-block")}>
                     <ul>
                      
                       <li className={"header-btn"}>
-                       
+                        <ConnectButton className="btn"/>
                       </li>
                     </ul>
                   </div>
@@ -205,8 +204,10 @@ const HeaderOne = () => {
                           <i className="fab fa-youtube"></i>
                         </a>
                       </li>
+                      
                     </ul>
                   </div>
+                  
                 </nav>
               </div>
 

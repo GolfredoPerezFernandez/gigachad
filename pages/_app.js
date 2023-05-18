@@ -7,27 +7,41 @@ import "@/styles/globals.css";
 import "@/styles/responsive.css";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
-
+import '@rainbow-me/rainbowkit/styles.css';
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
 const bootstrapJs = dynamic(import("bootstrap/dist/js/bootstrap.bundle.min"), {
   ssr: false,
   loading: () => 0,
 });
-import { configureChains,createConfig,WagmiConfig, mainnet } from 'wagmi'
-import { publicProvider } from 'wagmi/providers/public'
- 
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet],
-  [publicProvider()],
-)
- 
-const config = createConfig({
-  autoConnect: true,
-  publicClient,
-  webSocketPublicClient,
-})
 const isServer = typeof window === "undefined";
 const WOW = !isServer ? require("wow.js") : null;
 
+
+
+
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [
+    mainnet,
+    ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [] : []),
+  ],
+  [publicProvider()]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: 'RainbowKit demo',
+  projectId: 'YOUR_PROJECT_ID',
+  chains,
+});
+
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+  webSocketPublicClient,
+});
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     const wow = new WOW({
@@ -41,8 +55,10 @@ export default function App({ Component, pageProps }) {
     wow.init();
   }, []);
 
-  return  <WagmiConfig config={config}>
+  return   <WagmiConfig config={wagmiConfig}>
+    <RainbowKitProvider chains={chains}>
   <Component {...pageProps} />  
+    </RainbowKitProvider>
     </WagmiConfig>
 ;
 }
