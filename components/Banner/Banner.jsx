@@ -14,6 +14,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import { CryptoLogos } from '@web3uikit/core';
+import {  useConnect } from 'wagmi'
 
 import {  useAccount } from 'wagmi';
 
@@ -52,7 +53,10 @@ const Banner = () => {
     quantity: '',
     status: 'initial',
   }); 
-  
+  const { connector: activeConnector, isConnected } = useAccount()
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect()
+
 const { address:ethAddress} = useAccount()
    const classes = useStyles();
    const [num, setNum] = React.useState();
@@ -90,13 +94,11 @@ const { address:ethAddress} = useAccount()
 	}, [vantaEffect])
 
   const handleChange = (e) => {
-    const regex = /^[0-9\b]+$/;
-    if (e.target.value === "" || regex.test(e.target.value)) {
-      setNum(e.target.value);
-    }
+
+    setNum(e.target.value);
   };
   return (<section ref={myRef} className="banner-area banner-bg">
-       <div   className="container">
+       <div   style={{marginBottom:200}} className="container">
         <div  className="row justify-content-center">
           <div className="col-lg-10">
             <div className="banner-content text-center">
@@ -141,7 +143,9 @@ const { address:ethAddress} = useAccount()
       </div>
     
       </div>
-        <Stack style={{marginTop:70,marginBottom:120,justifyContent:"center",alignItems:"center"}}>
+       {/*  <Stack style={{marginTop:70,marginBottom:120,alignSelf:"center",justifyContent:"center",alignItems:"center"}}>
+        <h2 className="title">ICO IS  <span>LIVE!</span></h2>
+
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
    
       <TextField
@@ -149,13 +153,19 @@ const { address:ethAddress} = useAccount()
           label="GCHAD TOKEN ERC20 PRE-SALE"
         variant="filled" 
         focused
-        helperText="From ETH to GCHAD"
-      width={150}
+        maxWidth={120}
+        step={0.1}
+        pattern={"numbers"}
+        helperText="1 ETH FOR 10.000 GCHAD  "
+        type="number"
+
       onChange={(e) => handleChange(e)}
       value={num}
- step={0.1}
- inputProps={{
-   startAdornment:<InputAdornment color="white" position="start">
+ InputProps={{
+  maxLength: 13,
+  step: "0.1",
+  endAdornment:
+  <InputAdornment color="white" position="start">
  <CryptoLogos
  
    bgColor="#000000"
@@ -163,7 +173,9 @@ const { address:ethAddress} = useAccount()
    onClick={function noRefCheck(){}}
    size="20px"
  />            </InputAdornment>,
- style: { color: "white" } }}
+ style: { color: "white" } ,
+
+  }}
 
     
   
@@ -173,19 +185,25 @@ const { address:ethAddress} = useAccount()
 cssModule={AwesomeButtonStyles}
 type="primary"
 focused
-disabled={true}
+
+disabled
 color="primary" 
+ripple
 style={{width:220,marginLeft:10,marginTop:20,alignSelf:"center",marginBottom:50}}
 onPress={(event, release) => {
+  if(isConnected){
+    release()
+  }
+
   // do a sync/async task then call `release()`
-  release()
+
 }}>
 BUY GCHAD
 </AwesomeButtonProgress>
 
     </Box>
       
-    </Stack>
+    </Stack> */}
     </section>
   );
 };
