@@ -26,12 +26,8 @@ const Banner = () => {
 	  }
 	}, [vantaEffect])
 
-  return (
-    <section ref={myRef} className="banner-area banner-bg">
-    
-
-
-      <div   className="container">
+  return (<section ref={myRef} className="banner-area banner-bg">
+       <div   className="container">
         <div  className="row justify-content-center">
           <div className="col-lg-10">
             <div className="banner-content text-center">
@@ -40,33 +36,30 @@ const Banner = () => {
               Get ready to dominate the crypto world with   <span>GigaChad </span>(GCHD) 
                </h2>
 
-               <Link  style={{marginBottom:20}} href="https://etherscan.io/address/0x3beff2831393769448d41f5196d4b68b9bf1ad92#code"  className="btn">
-                          ERC20 ADDRESS
-                        </Link>
+             
             </div>
             </div>
-          {/*   <div className="banner-progress-wrap">
+           <div className="banner-progress-wrap">
               <ul>
                 <li>Pre Sell</li>
                 <li>Soft Cap</li>
-                <li>Bonus</li>
+                <li>Airdrop</li>
               </ul>
               <div className="progress">
                 <div
                   className="progress-bar"
                   role="progressbar"
-                  style={{ width: "75%" }}
-                  aria-valuenow="75"
+                  style={{ width: "5%" }}
+                  aria-valuenow="5"
                   aria-valuemin="0"
                   aria-valuemax="100"
                 />
               </div>
               <h4 className="title">
-                65% target raised <span>1 ETH = $1000 = 3177.38 CIC</span>
+                65% target raised <span>10.000 GCHAD</span>
               </h4>
             </div>
           </div>
-        </div>
         <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="banner-countdown-wrap text-center">
@@ -74,8 +67,12 @@ const Banner = () => {
 
               <CountDownOne />
             </div>
-          </div> */}
-        </div>
+          </div> 
+          <Link  style={{width:250,marginTop:30,marginBottom:50}} href="https://etherscan.io/address/0x3beff2831393769448d41f5196d4b68b9bf1ad92#code"  className="btn">
+                          ERC20 ADDRESS
+                        </Link>
+      </div>
+      
       </div>
     </section>
   );

@@ -43,7 +43,7 @@ const CountDownOne = () => {
 
   return (
     <div className="coming-time">
-      <Countdown date={Date.now() + 5000000} renderer={renderer} />
+      <Countdown date={Date.now() + 166400000} renderer={renderer} />
     </div>
   );
 };

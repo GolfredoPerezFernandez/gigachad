@@ -178,9 +178,6 @@ const HeaderOne = () => {
                     {/* <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->  */}
                   </div>
 
-                  <Link  href="https://etherscan.io/address/0x3beff2831393769448d41f5196d4b68b9bf1ad92#code"  className="btn">
-                          ERC20 ADDRESS
-                        </Link>
                   <div className={"social-links"}>
                     <ul className="clearfix">
                       <li>

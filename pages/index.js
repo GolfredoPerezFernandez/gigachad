@@ -9,6 +9,7 @@ import WhitePaper from "@/components/WhitePaper/WhitePaper";
 import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import LayoutOne from "@/layouts/LayoutOne";
+import BannerThree from "@/components/Banner/BannerThree";
 
 export default function Home() {
   return (
