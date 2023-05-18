@@ -56,7 +56,7 @@ const Banner = () => {
                 />
               </div>
               <h4 className="title">
-                65% target raised <span>10.000 GCHAD</span>
+                0% target raised <span>PRESALE ENDED</span>
               </h4>
             </div>
           </div>
