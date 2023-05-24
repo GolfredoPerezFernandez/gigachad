@@ -10,6 +10,7 @@ import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import LayoutOne from "@/layouts/LayoutOne";
 import BannerThree from "@/components/Banner/BannerThree";
+import Staking from "@/components/Staking/Staking";
 
 export default function Home() {
   return (
@@ -23,18 +24,24 @@ export default function Home() {
         <main className="fix">
           <Banner />
           <WhoWeAre />
-
+          
+    <div className="area-bg">
+            
+            <Staking />
+          </div>
           <WhyChooseUs />
           
           <div className="area-bg">
             
             <Roadmap />
           </div>
+          
+          <div height={20}></div>
+          <TopPartners />
           <Sales />
 
 
-          <div height={20}></div>
-          <TopPartners />
+          <div height={100}></div>
           
         </main>
       </LayoutOne>

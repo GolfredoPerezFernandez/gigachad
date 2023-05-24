@@ -21,12 +21,12 @@ const WhoWeAre = () => {
               <div className="section-title mb-30">
                 <span className="sub-title">Who we are</span>
                 <h2 className="title">
-                  The World’s <span>1st </span> MEME Coin That Offers Utility
+                  The World’s <span>1st </span> MEME Coin That Offers Staking
                 </h2>
               </div>
               <p>
 
-              Get ready to dominate the crypto world with GigaChad (GCHD) – the most muscular, assertive, and jaw-droppingly powerful token in the digital asset universe!
+              Get ready to dominate the crypto world with GigaChad (GHAD) – the most muscular, assertive, and jaw-droppingly powerful token in the digital asset universe!
             </p>
               <Link href="/" className="btn">
                 Purchase Tokens

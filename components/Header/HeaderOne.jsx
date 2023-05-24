@@ -125,7 +125,15 @@ const HeaderOne = () => {
                           About us
                         </Link>
                       </li>
-                      
+                      <li className={cn(hash == "staking" && "active")}>
+                        <Link
+                          href="#staking"
+                          className={"section-link"}
+                          onClick={() => handleClickScroll("staking")}
+                        >
+                          Staking
+                        </Link>
+                      </li>
                       <li className={isActiveLink("#roadmap")}>
                         <Link
                           href="#roadmap"

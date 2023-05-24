@@ -1,10 +1,11 @@
 import React,{useRef,useEffect,useState} from "react";
 import SalesTabButton from "./SalesTabButton";
 import SalesTabContent from "./SalesTabContent";
+import { Button, Hero, Input, PlanCard, Typography } from '@web3uikit/core'
 
-import RINGS from 'vanta/dist/vanta.rings.min'
+import HALO from 'vanta/dist/vanta.halo.min'
 
-const Sales = () => {
+const Staking = () => {
   const chart_info_list = [
     "Liquidity Pool: 65%",
     "Centralized Exchanges: 10%",
@@ -18,17 +19,17 @@ const Sales = () => {
 	const myRef = useRef(null)
 	useEffect(() => {
 	  if (!vantaEffect) {
-		setVantaEffect(RINGS({
+		setVantaEffect(HALO({
 		  el: myRef.current,
       mouseControls: true,
   touchControls: true,
   gyroControls: false,
   minHeight: 200.00,
   minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
+  baseColor: 0x0,
   backgroundColor: 0x0,
-  color: 0x888
+  yOffset: -0.06,
+  size: 1.60
 		}))
 	  }
 	  return () => {
@@ -36,19 +37,39 @@ const Sales = () => {
 	  }
 	}, [vantaEffect])
   return (
-    <section ref={myRef} id="sales" className="chart-area chart-bg ">
+    <section ref={myRef} id="staking" className="chart-area chart-bg ">
       <div className="container">
         <div className="chart-inner">
           <div className="row align-items-center justify-content-center">
             <div className="col-lg-6 col-md-10 order-0 order-lg-2">
-              <div className="chart-wrap wow fadeInRight" data-wow-delay=".2s">
-                <img src={"/img/images/chart.png"} alt="" />
-                <ul>
-                  {chart_info_list.map((x, index) => (
-                    <li key={index}>{x}</li>
-                  ))}
-                </ul>
-              </div>
+           
+     <PlanCard 
+  key={"101"}
+                backgroundColor="#144690"
+                ctaButton={<div key={"144690"}><Input
+				key={"3391"}
+                  label="GCHADCOIN"
+                  placeholder="100"
+                  />
+                  <Button  key={"31131"}   onClick={() => null} style={{ marginTop: 4 }} color="#144690" isFullWidth text="STAKE GHAD" theme="primary" />
+                  <Button key={"931"}  onClick={() => null} style={{ marginTop: 4 }} isFullWidth text="CLAIM" theme="secondary" /><Button key={"2334"} onClick={() => null} style={{ marginTop: 4 }} isFullWidth text="WITHDRAW" theme="secondary" /></div>}
+                features={[
+					"Your Deposit:",
+                  "TVL:",
+                  "ROI 90%",
+                ]}
+                featuresIconColor="#A8AFB7"
+                height="606px"
+                horizontalLine
+                isCurrentBillingPeriod
+                isCurrentPlan
+                price={<Typography key={"33321"} color="#144690" variant="h1" weight="700">{ " GHAD"}</Typography>}
+                themeColor="#144690"
+                title="GHAD Staking"
+                width="285px" description={<Typography key={"3331"} color="#144690" variant="h1" weight="700">{""}</Typography>}    />
+                
+ 
+	
             </div>
 
             <div className="col-lg-6 col-md-10">
@@ -62,7 +83,7 @@ const Sales = () => {
                     className={"show active"}
                     id="funding"
                     ariaLabel="funding-tab"
-                    title="1 GHAD = The Future"
+                    title="GHAD Staking"
                     description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside"
                     link="/"
                   />
@@ -78,4 +99,4 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export default Staking;

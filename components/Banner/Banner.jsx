@@ -104,12 +104,13 @@ const { address:ethAddress} = useAccount()
             <div className="banner-content text-center">
 
               <h2 className="title">
-              Get ready to dominate the crypto world with   <span>GigaChad </span>(GCHD) 
+              Get ready to dominate the crypto world with   <span>GigaChad </span>(GHAD) 
                </h2>
 
              
             </div>
             </div>
+            
            <div className="banner-progress-wrap">
               <ul>
                 <li>Pre Sell</li>
@@ -143,20 +144,20 @@ const { address:ethAddress} = useAccount()
       </div>
     
       </div>
-       {/*  <Stack style={{marginTop:70,marginBottom:120,alignSelf:"center",justifyContent:"center",alignItems:"center"}}>
+       <Stack style={{marginTop:70,marginBottom:120,alignSelf:"center",justifyContent:"center",alignItems:"center"}}>
         <h2 className="title">ICO IS  <span>LIVE!</span></h2>
 
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
    
       <TextField
           id="input-with-icon-adornment"
-          label="GCHAD TOKEN ERC20 PRE-SALE"
+          label="GHAD TOKEN ERC20 PRE-SALE"
         variant="filled" 
         focused
         maxWidth={120}
         step={0.1}
         pattern={"numbers"}
-        helperText="1 ETH FOR 10.000 GCHAD  "
+        helperText="1 ETH FOR 10.000 GHAD  "
         type="number"
 
       onChange={(e) => handleChange(e)}
@@ -198,12 +199,14 @@ onPress={(event, release) => {
   // do a sync/async task then call `release()`
 
 }}>
-BUY GCHAD
+BUY GHAD
 </AwesomeButtonProgress>
 
     </Box>
       
-    </Stack> */}
+    </Stack>
+
+    
     </section>
   );
 };
