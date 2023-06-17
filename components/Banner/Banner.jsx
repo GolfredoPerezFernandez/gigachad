@@ -15,7 +15,12 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import { CryptoLogos } from '@web3uikit/core';
 import {  useConnect } from 'wagmi'
+import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+import { ethers, getDefaultProvider } from 'ethers';
+import { SwapWidget } from '@uniswap/widgets'
+import '@uniswap/widgets/fonts.css'
 
+import { Web3Provider } from '@ethersproject/providers'
 import {  useAccount } from 'wagmi';
 
 import { makeStyles } from "@mui/styles";
@@ -27,6 +32,17 @@ const useStyles = makeStyles((theme) => ({
       color: `#c5cae9 !important`,
   }
 }));
+const theme = {
+  primary: '#FFD700',
+  secondary: '#A9A9A9',
+  interactive: '#F8F8FF',
+  container: '#4E4E5A',
+  module: '#222633',
+  accent: '#2A1B33',
+  outline: '#CC1',
+  dialog: '#000',
+  fontFamily: 'orbitron',
+}
 const currencies = [
   {
     value: 'USD',
@@ -49,6 +65,21 @@ const currencies = [
 import Link from "next/link";
 
 const Banner = () => {
+  const UNISWAP_TOKEN_LIST = 'https://tokenlist.arbitrum.io/ArbTokenLists/arbed_arb_whitelist_era.json'
+
+  const [provider, setProvider] = useState()
+  const { connector } = useAccount()
+
+  useEffect(() => {
+    if (!connector) {
+      return () => setProvider(undefined)
+    }
+  
+    connector.getProvider().then((provider) => {
+      setProvider(new Web3Provider(provider))
+    })
+  }, [connector])
+
   const [data, setData] = React.useState({
     quantity: '',
     status: 'initial',
@@ -59,7 +90,7 @@ const Banner = () => {
 
 const { address:ethAddress} = useAccount()
    const classes = useStyles();
-   const [num, setNum] = React.useState();
+   const [num, setNum] = React.useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -93,57 +124,45 @@ const { address:ethAddress} = useAccount()
 	  }
 	}, [vantaEffect])
 
+  const handleChecker = (e) => {
+
+    let array = [
+      { language: "JavaScript" },
+      { language: "JavaScript" },
+      { language: "TypeScript" },
+      { language: "C++" }
+    ];
+  
+    let newArray = [];
+    for (let i = 0; i < array.length; i++) {
+      console.log(array[i].language)
+      for (let j = 0; j < array.length; j++) {
+        console.log(array[j].language)
+        if (array[i].language !== array[j].language) {
+          newArray.push(array[i].language);
+        } else {
+          newArray = [...newArray,array[i].language];
+        }
+      }
+    }
+
+    console.log("newArray", newArray);
+  };
   const handleChange = (e) => {
 
     setNum(e.target.value);
   };
+  const {  isSuccess, write } = useContractWrite({
+    address: '0x338bbD9ea31C4a816e51C548eb55092BC91CB3eD',
+    abi: presaleABI,
+    functionName: 'buyTokens',
+    args:[ethAddress],
+    value:ethers.parseEther(num.toString())
+  })
+
+  //ethers.formatEther(num),
   return (<section ref={myRef} className="banner-area banner-bg">
-       <div   style={{marginBottom:200}} className="container">
-        <div  className="row justify-content-center">
-          <div className="col-lg-10">
-            <div className="banner-content text-center">
-
-              <h2 className="title">
-              Get ready to dominate the crypto world with   <span>GigaChad </span>(GHAD) 
-               </h2>
-
-             
-            </div>
-            </div>
-            
-           <div className="banner-progress-wrap">
-              <ul>
-                <li>Pre Sell</li>
-                <li>Soft Cap</li>
-                <li>Airdrop</li>
-              </ul>
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  style={{ width: "5%" }}
-                  aria-valuenow="5"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                />
-              </div>
-              <h4 className="title">
-                0% target raised <span>PRESALE ENDED</span>
-              </h4>
-            </div>
-          </div>
-        <div className="row justify-content-center">
-          <div className="col-xl-10">
-            <div className="banner-countdown-wrap text-center">
-              <h2 className="title">ICO Will Start In..</h2>
-
-              <CountDownOne />
-            </div>
-          </div> 
-
-      </div>
-    
-      </div>
+      
        <Stack style={{marginTop:70,marginBottom:120,alignSelf:"center",justifyContent:"center",alignItems:"center"}}>
         <h2 className="title">ICO IS  <span>LIVE!</span></h2>
 
@@ -193,6 +212,7 @@ ripple
 style={{width:220,marginLeft:10,marginTop:20,alignSelf:"center",marginBottom:50}}
 onPress={(event, release) => {
   if(isConnected){
+    write();
     release()
   }
 
@@ -202,13 +222,25 @@ onPress={(event, release) => {
 BUY GHAD
 </AwesomeButtonProgress>
 
+
     </Box>
       
     </Stack>
+    <div className="Uniswap">
+   {/*  <SwapWidget           locale={'en-US'}
+    defaultChainId={1}
+    hideConnectionUI={true}
+    width={360} 
 
+    provider={provider} 
+/> */}
+  </div>
+    
     
     </section>
   );
 };
 
 export default Banner;
+
+const presaleABI=[{"inputs":[{"internalType":"uint256","name":"pRate","type":"uint256"},{"internalType":"address payable","name":"pWallet","type":"address"},{"internalType":"contract IERC20","name":"pToken","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"purchaser","type":"address"},{"indexed":true,"internalType":"address","name":"beneficiary","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"TokensPurchased","type":"event"},{"inputs":[{"internalType":"address","name":"beneficiary","type":"address"}],"name":"buyTokens","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"rate","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"newRate","type":"uint256"}],"name":"setRate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"token","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"wallet","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"weiRaised","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bool","name":"_withdrawAll","type":"bool"},{"internalType":"uint256","name":"weiAmount","type":"uint256"}],"name":"withdrawRewards","outputs":[],"stateMutability":"nonpayable","type":"function"},{"stateMutability":"payable","type":"receive"}]
