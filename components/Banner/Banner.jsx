@@ -149,9 +149,9 @@ const { address:ethAddress} = useAccount()
     console.log("newArray", newArray);
   };
   const handleChange = (e) => {
-
     setNum(e.target.value);
   };
+  
   const {  isSuccess, write } = useContractWrite({
     address: '0x338bbD9ea31C4a816e51C548eb55092BC91CB3eD',
     abi: presaleABI,

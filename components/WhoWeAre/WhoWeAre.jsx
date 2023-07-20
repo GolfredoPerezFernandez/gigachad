@@ -21,7 +21,7 @@ const WhoWeAre = () => {
               <div className="section-title mb-30">
                 <span className="sub-title">Who we are</span>
                 <h2 className="title">
-                  The World’s <span>1st </span> MEME Coin That Offers Staking
+                GigaChad <span>: </span>  Your Meme Coin, On Steroids.
                 </h2>
               </div>
               <p>

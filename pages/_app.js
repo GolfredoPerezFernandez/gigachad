@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
+import { mainnet, flare,polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 const bootstrapJs = dynamic(import("bootstrap/dist/js/bootstrap.bundle.min"), {
   ssr: false,
@@ -24,7 +24,7 @@ const WOW = !isServer ? require("wow.js") : null;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
-    mainnet,
+    mainnet,flare,
     ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [] : []),
   ],
   [publicProvider()]

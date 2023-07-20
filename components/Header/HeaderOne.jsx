@@ -116,6 +116,7 @@ const HeaderOne = () => {
                         </Link>
                         
                       </li>
+
                       <li className={cn(hash == "about" && "active")}>
                         <Link
                           href="#about"
@@ -125,6 +126,7 @@ const HeaderOne = () => {
                           About us
                         </Link>
                       </li>
+
                       <li className={cn(hash == "staking" && "active")}>
                         <Link
                           href="#staking"
@@ -134,6 +136,7 @@ const HeaderOne = () => {
                           Staking
                         </Link>
                       </li>
+
                       <li className={isActiveLink("#roadmap")}>
                         <Link
                           href="#roadmap"
@@ -143,6 +146,7 @@ const HeaderOne = () => {
                           Roadmap
                         </Link>
                       </li>
+
                       <li className={isActiveLink("#sales")}>
                         <Link
                           href="#sales"
@@ -154,6 +158,7 @@ const HeaderOne = () => {
                       </li>
                     </ul>
                   </div>
+
                   <div className={cn("header-action", "d-none d-md-block")}>
                     <ul>
                      
@@ -162,6 +167,7 @@ const HeaderOne = () => {
                       </li>
                     </ul>
                   </div>
+                  
                 </nav>
               </div>
 

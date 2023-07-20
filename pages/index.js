@@ -11,8 +11,11 @@ import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import LayoutOne from "@/layouts/LayoutOne";
 import BannerThree from "@/components/Banner/BannerThree";
 import Staking from "@/components/Staking/Staking";
+import { useNetwork } from "wagmi";
 
 export default function Home() {
+  const {chain}=useNetwork()
+  console.log(chain?.id)
   return (
     <>
       <Head>
@@ -22,7 +25,9 @@ export default function Home() {
 
       <LayoutOne>
         <main className="fix">
-          <Banner />
+          {chain?.id!==1?
+          null:
+          <Banner />}
           <WhoWeAre />
           
     <div className="area-bg">
