@@ -3,9 +3,11 @@ import SalesTabButton from "./SalesTabButton";
 import SalesTabContent from "./SalesTabContent";
 import { Button, Hero, Input, PlanCard, Typography } from '@web3uikit/core'
 
+import { useNetwork } from "wagmi";
 import HALO from 'vanta/dist/vanta.halo.min'
 
 const Staking = () => {
+  
   const chart_info_list = [
     "Liquidity Pool: 65%",
     "Centralized Exchanges: 10%",
@@ -15,8 +17,11 @@ const Staking = () => {
     "Marketing: 3%",
     "Dev Team: 2%",
   ];
+  const {chain}=useNetwork()
+
   const [vantaEffect, setVantaEffect] = useState(null)
 	const myRef = useRef(null)
+  
 	useEffect(() => {
 	  if (!vantaEffect) {
 		setVantaEffect(HALO({
@@ -36,6 +41,7 @@ const Staking = () => {
 		if (vantaEffect) vantaEffect.destroy()
 	  }
 	}, [vantaEffect])
+  console.log("Staking "+ chain?.id)
   return (
     <section ref={myRef} id="staking" className="chart-area chart-bg ">
       <div className="container">
@@ -48,10 +54,10 @@ const Staking = () => {
                 backgroundColor="#144690"
                 ctaButton={<div key={"144690"}><Input
 				key={"3391"}
-                  label="GCHADCOIN"
+                  label={chain?.id==="14"?"CHADCOIN":"GHADCOIN"}
                   placeholder="100"
                   />
-                  <Button  key={"31131"}   onClick={() => null} style={{ marginTop: 4 }} color="#144690" isFullWidth text="STAKE GHAD" theme="primary" />
+                  <Button  key={"31131"}   onClick={() => null} style={{ marginTop: 4 }} color="#144690" isFullWidth text={chain?.id!==14?"STAKE GHAD":"STAKE CHAD"} theme="primary" />
                   <Button key={"931"}  onClick={() => null} style={{ marginTop: 4 }} isFullWidth text="CLAIM" theme="secondary" /><Button key={"2334"} onClick={() => null} style={{ marginTop: 4 }} isFullWidth text="WITHDRAW" theme="secondary" /></div>}
                 features={[
 					"Your Deposit:",
@@ -63,9 +69,9 @@ const Staking = () => {
                 horizontalLine
                 isCurrentBillingPeriod
                 isCurrentPlan
-                price={<Typography key={"33321"} color="#144690" variant="h1" weight="700">{ " GHAD"}</Typography>}
+                price={<Typography key={"33321"} color="#144690" variant="h1" weight="700">{ chain?.id!==14?" GHAD":"CHAD"}</Typography>}
                 themeColor="#144690"
-                title="GHAD Staking"
+                title={chain?.id!==14?"GHAD Staking":"CHAD Staking"}
                 width="285px" description={<Typography key={"3331"} color="#144690" variant="h1" weight="700">{""}</Typography>}    />
                 
  
@@ -83,7 +89,7 @@ const Staking = () => {
                     className={"show active"}
                     id="funding"
                     ariaLabel="funding-tab"
-                    title="GHAD Staking"
+                    title={chain?.id!==14?"GHAD Staking":"CHAD Staking"}
                     description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside"
                     link="/"
                   />

@@ -1,10 +1,13 @@
 import React,{useRef,useEffect,useState} from "react";
 import SalesTabButton from "./SalesTabButton";
 import SalesTabContent from "./SalesTabContent";
+import { useNetwork } from "wagmi";
 
 import RINGS from 'vanta/dist/vanta.rings.min'
 
 const Sales = () => {
+  const {chain}=useNetwork()
+
   const chart_info_list = [
     "Liquidity Pool: 65%",
     "Centralized Exchanges: 10%",
@@ -62,7 +65,7 @@ const Sales = () => {
                     className={"show active"}
                     id="funding"
                     ariaLabel="funding-tab"
-                    title="1 GHAD = The Future"
+                    title={chain?.id!==1?"1 CHAD = The Future":"1 GHAD = The Future"}
                     description="Take the reins of your financial future with GigaChad. This isn't your average meme coin, this is a financial revolution, embodying strength, resilience, and determination. Stand tall with GigaChad, and embrace the power of a community that never backs down. Welcome to the world of GigaChad - where the bold thrive and the timid step aside"
                     link="/"
                   />

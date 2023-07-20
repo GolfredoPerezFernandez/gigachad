@@ -15,7 +15,6 @@ import { useNetwork } from "wagmi";
 
 export default function Home() {
   const {chain}=useNetwork()
-  console.log(chain?.id)
   return (
     <>
       <Head>

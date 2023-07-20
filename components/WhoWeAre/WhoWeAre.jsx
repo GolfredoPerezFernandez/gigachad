@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useNetwork } from "wagmi";
 
 const WhoWeAre = () => {
+  
+  const {chain}=useNetwork()
   return (
     <section id="about" className="about-area pt-130 pb-130">
       <div className="container">
@@ -26,7 +29,9 @@ const WhoWeAre = () => {
               </div>
               <p>
 
-              Get ready to dominate the crypto world with GigaChad (GHAD) – the most muscular, assertive, and jaw-droppingly powerful token in the digital asset universe!
+              Get ready to dominate the crypto world with GigaChad {chain?.id!==1?
+          "CHAD":
+          "GHAD"} – the most muscular, assertive, and jaw-droppingly powerful token in the digital asset universe!
             </p>
               <Link href="/" className="btn">
                 Purchase Tokens

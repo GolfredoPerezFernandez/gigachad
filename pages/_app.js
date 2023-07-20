@@ -12,6 +12,7 @@ import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { mainnet, flare,polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+
 const bootstrapJs = dynamic(import("bootstrap/dist/js/bootstrap.bundle.min"), {
   ssr: false,
   loading: () => 0,

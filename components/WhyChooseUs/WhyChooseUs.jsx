@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import SlickSlider from "../SlickSlider/SlickSlider";
 import WhyChooseUsItem from "./WhyChooseUsItem";
 
+import { useNetwork } from "wagmi";
 const WhyChooseUs = () => {
+  
+  const {chain}=useNetwork()
   const slickSettings = {
     dots: false,
     infinite: true,
@@ -52,49 +55,49 @@ const WhyChooseUs = () => {
       alt: "",
       link: "/",
       title: "Total Supply Cap",
-      description: "A ripped and shredded 188,888,888,888,888 GHAD tokens. No more, no less – because a real alpha knows when enough is enough.",
+      description: chain?.id!==1?"A ripped and shredded 188,888,888,888,888 CHAD tokens. No more, no less – because a real alpha knows when enough is enough.":"A ripped and shredded 188,888,888,888,888 GHAD tokens. No more, no less – because a real alpha knows when enough is enough.",
     },
     {
       src: "/img/icon/choose_icon02.svg",
       alt: "",
       link: "/",
       title: "Token Deflation",
-      description: "Every GHAD transaction is like a killer workout, burning 1% of the transferred tokens. As the total supply deflates, the value of GHAD grows like a chiseled bicep.",
+      description: chain?.id!==1?"Every CHAD transaction is like a killer workout, burning 1% of the transferred tokens. As the total supply deflates, the value of CHAD grows like a chiseled bicep.":"Every GHAD transaction is like a killer workout, burning 1% of the transferred tokens. As the total supply deflates, the value of GHAD grows like a chiseled bicep.",
     },
     {
       src: "/img/icon/h2_choose_icon04.svg",
       alt: "",
       link: "/",
       title: "Airdrops",
-      description: "Shower your loyal followers with GHAD tokens using airdrops. Because a true GigaChad shares his gains with his squad.",
+      description: chain?.id!==1?"Shower your loyal followers with CHAD tokens using airdrops. Because a true GigaChad shares his gains with his squad.":"Shower your loyal followers with GHAD tokens using airdrops. Because a true GigaChad shares his gains with his squad.",
     },
     {
       src: "/img/icon/choose_icon03.svg",
       alt: "",
       link: "/",
       title: "Security Features",
-      description: "GHAD has got your back with tight security, including pausing mechanisms and cooldown periods to prevent Sandwichs Attacks. It's like having a personal bodyguard for your tokens.",
+      description: chain?.id!==1?"CHAD has got your back with tight security, including pausing mechanisms and cooldown periods to prevent Sandwichs Attacks. It's like having a personal bodyguard for your tokens.":"GHAD has got your back with tight security, including pausing mechanisms and cooldown periods to prevent Sandwichs Attacks. It's like having a personal bodyguard for your tokens.",
     },
     {
       src: "/img/icon/h2_choose_icon03.svg",
       alt: "",
       link: "/",
       title: "Snapshot Capabilities",
-      description: "GHAD takes snapshots of token balances, so you know who's boss when it comes to voting rights or dividends distribution.",
+      description: chain?.id!==1?"CHAD takes snapshots of token balances, so you know who's boss when it comes to voting rights or dividends distribution.":"GHAD takes snapshots of token balances, so you know who's boss when it comes to voting rights or dividends distribution.",
     },
     {
       src: "/img/icon/h2_choose_icon02.svg",
       alt: "",
       link: "/",
       title: "Governance & Voting",
-      description: "GHAD runs on pure democracy and swagger. The more GHAD tokens you hold, the louder your alpha voice roars in governance decisions.",
+      description: chain?.id!==1?"CHAD runs on pure democracy and swagger. The more GHAD tokens you hold, the louder your alpha voice roars in governance decisions.":"GHAD runs on pure democracy and swagger. The more GHAD tokens you hold, the louder your alpha voice roars in governance decisions.",
     },
     {
       src: "/img/icon/h2_choose_icon01.svg",
       alt: "",
       link: "/",
       title: "Flashloans",
-      description: "Flex those financial muscles with GHAD's flash minting feature. Create flashloan in a single transaction for mind-blowing DeFi moves.",
+      description: chain?.id!==1?"Flex those financial muscles with CHAD's flash minting feature. Create flashloan in a single transaction for mind-blowing DeFi moves.":"Flex those financial muscles with GHAD's flash minting feature. Create flashloan in a single transaction for mind-blowing DeFi moves.",
     },
   ];
 
